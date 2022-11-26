@@ -1,14 +1,11 @@
 #![allow(unused)] // silence warnings while dev // comment out later
 fn main() {
-    //let result = disemvowel("the emporer protects! So must we. I also");
-    // let result = reverse_seq(5);
-    /* let result = is_valid_ip("12.255.56.1");
-    println!("{:?}", result); */
-
     let res = to_camel_case("the_emporer_protects");
     let res1 = to_camel_case("Heresy-is-a-crime-of-thoughts");
-    let res2 = to_camel_case("RWUIOBIQsss") ;
+    let res2 = to_camel_case("RWUIOBIQsss");
     println!("{:?}", res);
+    println!("{:?}", res1);
+    println!("{:?}", res2);
 }
 
 /* fn disemvowel(s: &str) -> String {
