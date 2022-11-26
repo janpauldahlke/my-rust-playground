@@ -2,8 +2,13 @@
 fn main() {
     //let result = disemvowel("the emporer protects! So must we. I also");
     // let result = reverse_seq(5);
-    let result = is_valid_ip("12.255.56.1");
-    println!("{:?}", result);
+    /* let result = is_valid_ip("12.255.56.1");
+    println!("{:?}", result); */
+
+    let res = to_camel_case("the_emporer_protects");
+    let res1 = to_camel_case("Heresy-is-a-crime-of-thoughts");
+    let res2 = to_camel_case("RWUIOBIQsss") ;
+    println!("{:?}", res);
 }
 
 /* fn disemvowel(s: &str) -> String {
@@ -106,4 +111,48 @@ fn is_valid_ip(ip: &str) -> bool {
         }
     }
     true
+}
+
+fn to_camel_case(text: &str) -> String {
+    //let mut inner_text = String::from(text);
+    let delimiters: Vec<char> = Vec::from(['_', '-']);
+    let delim_iter = delimiters.iter();
+    let mut res_text = String::new();
+
+    for &entry in delim_iter {
+        if text.contains(entry) {
+            let res: Vec<&str> = text.split(entry).collect();
+            let mut counter = 0;
+            for r in res {
+                counter += 1;
+                if counter < 2 {
+                    res_text = r.to_string();
+                } else {
+                    let foo = uppercase_first(r);
+                    res_text = res_text + &foo;
+                }
+            }
+            break; // exit after we found one delimiter
+        } else {
+            res_text = String::from(text);
+        }
+    }
+
+    res_text
+}
+
+//helper to uper
+fn uppercase_first(data: &str) -> String {
+    // Uppercase first letter.
+    let mut result = String::new();
+    let mut first = true;
+    for value in data.chars() {
+        if first {
+            result.push(value.to_ascii_uppercase());
+            first = false;
+        } else {
+            result.push(value);
+        }
+    }
+    result
 }
