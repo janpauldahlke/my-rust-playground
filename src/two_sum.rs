@@ -11,31 +11,31 @@ two_sum(&[1, 2, 3], 4) // return (0, 2) or (2, 0)
 ```
 */
 
-fn main() {
+/* fn main() {
     let res = two_sum(&[1, 2, 3], 4);
     println!("{:?}", res);
-}
+} */
 
-pub fn two_sum(numbers: &[i32], target: i32) -> (usize, usize) {
+/* pub fn two_sum(numbers: &[i32], target: i32) -> (usize, usize) {
     let inner_num_iter = numbers.iter();
     let num_iter = numbers.iter();
     let mut outer_index = 0;
     let mut result: (usize, usize) = (0, 0);
 
-    for outer_num in num_iter {
+    'outer: for outer_num in num_iter {
         let mut inner_index = 0;
 
         for inner_num in inner_num_iter.clone() {
             if outer_num + inner_num == target {
                 result = (outer_index, inner_index);
-                break;
+                break 'outer;
             }
             inner_index += 1;
         }
         outer_index += 1;
     }
     result
-}
+} */
 
 /*
 
@@ -51,3 +51,15 @@ fn two_sum(n: &[i32], t: i32) -> (usize, usize) {
     return (0,0)
 }
 */
+
+// credit 2  TheRoboMan at discord
+pub fn two_sum(numbers: &[i32], target: i32) -> (usize, usize) {
+    for (outer_index, outer_num) in numbers.iter().enumerate() {
+        for (inner_index, inner_num) in numbers.iter().enumerate() {
+            if outer_num + inner_num == target {
+                return (outer_index, inner_index);
+            }
+        }
+    }
+    return (0, 0);
+}
