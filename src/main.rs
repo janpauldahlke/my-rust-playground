@@ -1,5 +1,13 @@
 #![allow(unused)] // silence warnings while dev // comment out later
 
+mod vowels_count;
+use vowels_count::get_count;
+
+fn main() {
+    let res = get_count("abracadabra");
+    println!("{}", res)
+}
+
 //mod find_even_index;
 //use find_even_index::find_even_index;
 
