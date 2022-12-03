@@ -1,12 +1,20 @@
 #![allow(unused)] // silence warnings while dev // comment out later
 
-mod vowels_count;
+mod high_low;
+use high_low::high_and_low;
+
+fn main() {
+    let res = high_and_low("1 2 -3 4 5");
+    println!("{}", res);
+}
+
+/* mod vowels_count;
 use vowels_count::get_count;
 
 fn main() {
     let res = get_count("abracadabra");
     println!("{}", res)
-}
+} */
 
 //mod find_even_index;
 //use find_even_index::find_even_index;
